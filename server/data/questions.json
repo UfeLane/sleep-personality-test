@@ -1,0 +1,178 @@
+[
+  {
+    "id": "Q01",
+    "title": "过去一个月，你对自己的睡眠质量总体评价如何？",
+    "subtitle": "请根据整体感受选择",
+    "options": [
+      { "label": "很好，醒来很舒服", "value": 0, "scoring": { "quality_score": 0 } },
+      { "label": "较好，基本满足", "value": 1, "scoring": { "quality_score": 1 } },
+      { "label": "较差，不太满意", "value": 2, "scoring": { "quality_score": 2 } },
+      { "label": "很差，非常困扰", "value": 3, "scoring": { "quality_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q02",
+    "title": "过去一个月，你通常需要多长时间才能入睡？",
+    "subtitle": "从关灯到真正睡着的时间",
+    "options": [
+      { "label": "10-15分钟，很快入睡", "value": 0, "scoring": { "latency_score": 0, "sleep_delay_score": 0 } },
+      { "label": "16-30分钟，还算顺利", "value": 1, "scoring": { "latency_score": 1, "sleep_delay_score": 1 } },
+      { "label": "31-60分钟，有点困难", "value": 2, "scoring": { "latency_score": 2, "sleep_delay_score": 2 } },
+      { "label": "超过60分钟，非常困难", "value": 3, "scoring": { "latency_score": 3, "sleep_delay_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q03",
+    "title": "过去一个月，你的实际睡眠时长大约是？",
+    "subtitle": "指实际睡着的时间，不是躺在床上的时间",
+    "options": [
+      { "label": "7小时以上", "value": 0, "scoring": { "duration_score": 0 } },
+      { "label": "6-7小时", "value": 1, "scoring": { "duration_score": 1 } },
+      { "label": "5-6小时", "value": 2, "scoring": { "duration_score": 2 } },
+      { "label": "不足5小时", "value": 3, "scoring": { "duration_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q04",
+    "title": "过去一个月，你的睡眠效率如何？",
+    "subtitle": "实际睡眠时间 ÷ 床上总时间的比例",
+    "options": [
+      { "label": "85%以上，效率很高", "value": 0, "scoring": { "efficiency_score": 0 } },
+      { "label": "75%-84%，还不错", "value": 1, "scoring": { "efficiency_score": 1 } },
+      { "label": "65%-74%，偏低", "value": 2, "scoring": { "efficiency_score": 2 } },
+      { "label": "低于65%，明显偏低", "value": 3, "scoring": { "efficiency_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q05",
+    "title": "过去一个月，你是否因为以下问题在夜间或清晨醒来？",
+    "subtitle": "如打鼾、呼吸不畅、咳嗽、疼痛、上厕所等",
+    "options": [
+      { "label": "没有，一夜安睡", "value": 0, "scoring": { "disturbance_score": 0, "night_waking_score": 0 } },
+      { "label": "偶尔有，不影响整体", "value": 1, "scoring": { "disturbance_score": 1, "night_waking_score": 1 } },
+      { "label": "经常有，比较困扰", "value": 2, "scoring": { "disturbance_score": 2, "night_waking_score": 2 } },
+      { "label": "几乎每晚都醒", "value": 3, "scoring": { "disturbance_score": 3, "night_waking_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q06",
+    "title": "过去一个月，你使用助眠药物的情况？",
+    "subtitle": "包括处方药、非处方药或保健品",
+    "options": [
+      { "label": "没有使用任何助眠产品", "value": 0, "scoring": { "medication_score": 0 } },
+      { "label": "偶尔使用（每月1-2次）", "value": 1, "scoring": { "medication_score": 1 } },
+      { "label": "每周使用1-2次", "value": 2, "scoring": { "medication_score": 2 } },
+      { "label": "每周使用3次以上", "value": 3, "scoring": { "medication_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q07",
+    "title": "过去一个月，白天保持清醒和投入的困难程度？",
+    "subtitle": "如开车、吃饭、开会或学习时",
+    "options": [
+      { "label": "没有困难，精力充足", "value": 0, "scoring": { "daytime_score": 0, "daytime_energy_score": 0 } },
+      { "label": "轻度困难，偶尔犯困", "value": 1, "scoring": { "daytime_score": 1, "daytime_energy_score": 1 } },
+      { "label": "中度困难，经常犯困", "value": 2, "scoring": { "daytime_score": 2, "daytime_energy_score": 2 } },
+      { "label": "严重困难，很难坚持", "value": 3, "scoring": { "daytime_score": 3, "daytime_energy_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q08",
+    "title": "睡觉前躺在床上时，你的大脑活跃程度如何？",
+    "subtitle": "是平静放松还是思绪纷飞",
+    "options": [
+      { "label": "很平静，很快就能入睡", "value": 0, "scoring": { "rumination_score": 0, "bed_awake_score": 0 } },
+      { "label": "偶尔想些事情，能自己停下", "value": 1, "scoring": { "rumination_score": 1, "bed_awake_score": 1 } },
+      { "label": "经常想各种事情，有点停不下来", "value": 2, "scoring": { "rumination_score": 2, "bed_awake_score": 2 } },
+      { "label": "思绪翻涌，完全停不下来", "value": 3, "scoring": { "rumination_score": 3, "bed_awake_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q09",
+    "title": "夜间醒来后，你通常能重新入睡吗？",
+    "subtitle": "包括上完厕所后",
+    "options": [
+      { "label": "基本不醒来，或醒来很快入睡了", "value": 0, "scoring": { "return_sleep_score": 0, "night_waking_score": 0 } },
+      { "label": "偶尔醒来，能较快重新入睡", "value": 1, "scoring": { "return_sleep_score": 1, "night_waking_score": 1 } },
+      { "label": "经常醒来，需要较长时间才能睡着", "value": 2, "scoring": { "return_sleep_score": 2, "night_waking_score": 2 } },
+      { "label": "醒来后很难再睡着", "value": 3, "scoring": { "return_sleep_score": 3, "night_waking_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q10",
+    "title": "你是否比预期时间早醒，且无法再次入睡？",
+    "subtitle": "比如闹钟没响就醒了，但睡不着了",
+    "options": [
+      { "label": "没有，一般都睡到闹钟响", "value": 0, "scoring": { "early_waking_score": 0, "return_sleep_score": 0 } },
+      { "label": "偶尔会早醒", "value": 1, "scoring": { "early_waking_score": 1, "return_sleep_score": 1 } },
+      { "label": "经常早醒，比较困扰", "value": 2, "scoring": { "early_waking_score": 2, "return_sleep_score": 2 } },
+      { "label": "几乎每天早醒，非常困扰", "value": 3, "scoring": { "early_waking_score": 3, "return_sleep_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q11",
+    "title": "白天的精力状况如何？",
+    "subtitle": "起床后到晚上的整体状态",
+    "options": [
+      { "label": "精力充沛，元气满满", "value": 0, "scoring": { "daytime_energy_score": 0, "recovery_score": 0 } },
+      { "label": "偶尔犯困，但整体还行", "value": 1, "scoring": { "daytime_energy_score": 1, "recovery_score": 1 } },
+      { "label": "经常感到疲惫，需要硬撑", "value": 2, "scoring": { "daytime_energy_score": 2, "recovery_score": 2 } },
+      { "label": "严重精神不振，影响生活", "value": 3, "scoring": { "daytime_energy_score": 3, "recovery_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q12",
+    "title": "白天专注力和情绪状态如何？",
+    "subtitle": "工作、学习或日常活动中的感受",
+    "options": [
+      { "label": "很好，能专注投入", "value": 0, "scoring": { "focus_mood_score": 0 } },
+      { "label": "偶尔走神或有点烦躁", "value": 1, "scoring": { "focus_mood_score": 1 } },
+      { "label": "经常注意力不集中或情绪波动", "value": 2, "scoring": { "focus_mood_score": 2 } },
+      { "label": "严重无法集中，情绪低落", "value": 3, "scoring": { "focus_mood_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q13",
+    "title": "你是否有意识地推迟睡觉时间？",
+    "subtitle": "即使不忙也舍不得睡",
+    "options": [
+      { "label": "基本不推迟，到点就睡", "value": 0, "scoring": { "sleep_delay_score": 0 } },
+      { "label": "偶尔推迟，不算频繁", "value": 1, "scoring": { "sleep_delay_score": 1 } },
+      { "label": "经常推迟，有点习惯了", "value": 2, "scoring": { "sleep_delay_score": 2 } },
+      { "label": "几乎每天都推迟，成习惯了", "value": 3, "scoring": { "sleep_delay_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q14",
+    "title": "你如何看待睡前的「个人时间」？",
+    "subtitle": "刷手机、追剧、发呆……",
+    "options": [
+      { "label": "不需要，随时可以睡", "value": 0, "scoring": { "private_time_score": 0 } },
+      { "label": "有一点就好，不影响睡眠", "value": 1, "scoring": { "private_time_score": 1 } },
+      { "label": "很珍惜，经常为此熬夜", "value": 2, "scoring": { "private_time_score": 2 } },
+      { "label": "这是最重要的时刻，宁可少睡", "value": 3, "scoring": { "private_time_score": 3 } }
+    ]
+  },
+  {
+    "id": "Q15",
+    "title": "你的作息规律程度如何？",
+    "subtitle": "每天睡觉和起床时间的稳定性",
+    "options": [
+      { "label": "非常规律，每天都差不多", "value": 3, "scoring": { "routine_stability_score": 3 } },
+      { "label": "比较规律，偶尔有变化", "value": 2, "scoring": { "routine_stability_score": 2 } },
+      { "label": "不太规律，经常变化", "value": 1, "scoring": { "routine_stability_score": 1 } },
+      { "label": "很不规律，每天都不一样", "value": 0, "scoring": { "routine_stability_score": 0 } }
+    ]
+  },
+  {
+    "id": "Q16",
+    "title": "睡醒后的恢复感如何？",
+    "subtitle": "醒来时的身体和精神感受",
+    "options": [
+      { "label": "精力完全恢复，神清气爽", "value": 0, "scoring": { "recovery_score": 0 } },
+      { "label": "基本恢复了，还不错", "value": 1, "scoring": { "recovery_score": 1 } },
+      { "label": "没太恢复，还是有点累", "value": 2, "scoring": { "recovery_score": 2 } },
+      { "label": "比睡前还累，像没睡一样", "value": 3, "scoring": { "recovery_score": 3 } }
+    ]
+  }
+]

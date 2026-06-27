@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-light text-dark font-sans antialiased;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply h-dvh w-full px-5 py-6 flex flex-col overflow-hidden;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .page-scroll {
+    @apply flex-1 overflow-y-auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .page-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm rounded-3xl shadow-soft;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white font-medium px-8 py-4 rounded-pill
+           shadow-strong transition-all duration-300
+           hover:brightness-110 active:scale-[0.98]
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-dark border border-gray-200 font-medium px-8 py-4 rounded-pill
+           shadow-soft transition-all duration-300
+           hover:shadow-medium active:scale-[0.98];
+  }
+
+  .progress-dot {
+    @apply w-2 h-2 rounded-full transition-all duration-300;
+  }
+
+  .progress-dot-active {
+    @apply bg-primary w-6 rounded-full;
+  }
+
+  .progress-dot-done {
+    @apply bg-primary-light;
+  }
+
+  .progress-dot-pending {
+    @apply bg-gray-200;
+  }
+}
