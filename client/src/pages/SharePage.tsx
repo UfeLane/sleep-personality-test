@@ -5,6 +5,13 @@ import type { AssessmentResult } from '../../../shared/types';
 import ShareCard from '../components/ShareCard';
 import Button from '../components/Button';
 
+export default function SharePage() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const state = location.state as {
+    result?: AssessmentResult;
+  };
+
   // If no state, redirect to home
   if (!state?.result) {
     navigate('/', { replace: true });
