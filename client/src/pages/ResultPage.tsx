@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { getResult } from '../api';
+import { getResult, collectResult } from '../api';
 import type { AssessmentResponse } from '../../../shared/types';
 import TagBubble from '../components/TagBubble';
 import DoctorReminder from '../components/DoctorReminder';
@@ -28,6 +28,14 @@ export default function ResultPage() {
       .then((res) => {
         setData(res);
         setLoading(false);
+        // 匿名数据收集（不阻塞）
+        collectResult({
+          primary_persona: res.result.primary_persona,
+          secondary_persona: res.result.secondary_persona,
+          psqi_total: res.scores.psqi_lite_total,
+          level: res.result.level,
+          tags: res.result.tags,
+        });
       })
       .catch((err) => {
         setError(err.message || '加载结果失败');

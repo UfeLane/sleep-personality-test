@@ -57,3 +57,22 @@ export async function getResult(
   if (!res.success || !res.data) throw new Error('获取测评结果失败');
   return res.data;
 }
+
+/** 匿名数据收集（不阻塞） */
+export async function collectResult(data: {
+  primary_persona: string;
+  secondary_persona?: string;
+  psqi_total: number;
+  level: string;
+  tags: string[];
+}): Promise<void> {
+  try {
+    await fetch(`${API_BASE}/collect`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+  } catch {
+    // 静默失败，不影响用户体验
+  }
+}
