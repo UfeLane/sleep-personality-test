@@ -176,4 +176,8 @@ app.listen(PORT, () => {
   console.log(`     GET  /api/questions`);
   console.log(`     GET  /api/personalities`);
   console.log(`     POST /api/submit`);
-  console.log(`     GET  
+  console.log(`     GET  /api/result/:assessmentId`);
+  console.log(`     POST /api/collect (匿名结果收集)`);
+  console.log(`     GET  /api/collect/data (数据看板接口)`);
+  console.log(`  📦 模式: ${isProduction ? '生产' : '开发'}\n`);
+});
