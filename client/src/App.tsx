@@ -6,7 +6,6 @@ import QuizPage from './pages/QuizPage';
 import LoadingPage from './pages/LoadingPage';
 import ResultPage from './pages/ResultPage';
 import SharePage from './pages/SharePage';
-import AdminPage from './pages/AdminPage';
 
 export default function App() {
   return (
@@ -18,7 +17,6 @@ export default function App() {
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/result/:assessmentId" element={<ResultPage />} />
         <Route path="/share" element={<SharePage />} />
-        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </Layout>
   );
