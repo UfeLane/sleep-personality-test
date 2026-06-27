@@ -1,20 +1,9 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { toPng } from 'html-to-image';
-import type { AssessmentResult, PsqiScores } from '../../../shared/types';
+import type { AssessmentResult } from '../../../shared/types';
 import ShareCard from '../components/ShareCard';
 import Button from '../components/Button';
-
-export default function SharePage() {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const state = location.state as {
-    result?: AssessmentResult;
-    scores?: PsqiScores;
-    assessmentId?: string;
-  };
-  const [saving, setSaving] = useState(false);
 
   // If no state, redirect to home
   if (!state?.result) {
@@ -39,29 +28,6 @@ export default function SharePage() {
       document.execCommand('copy');
       document.body.removeChild(textarea);
       alert('分享链接已复制到剪贴板！');
-    }
-  }, [result]);
-
-  const handleSaveImage = useCallback(async () => {
-    const cardEl = document.getElementById('share-card');
-    if (!cardEl) return;
-    setSaving(true);
-    try {
-      // Small delay to ensure images have rendered
-      await new Promise((r) => setTimeout(r, 300));
-      const dataUrl = await toPng(cardEl, {
-        quality: 0.95,
-        pixelRatio: 2,
-        useCORS: true,
-      });
-      const link = document.createElement('a');
-      link.download = `眠格自测-${result.primary_persona_name}.png`;
-      link.href = dataUrl;
-      link.click();
-    } catch {
-      alert('保存图片失败，请尝试截图保存');
-    } finally {
-      setSaving(false);
     }
   }, [result]);
 
@@ -92,22 +58,9 @@ export default function SharePage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
       >
-        <div className="flex gap-3">
-          <Button
-            variant="secondary"
-            onClick={handleCopyLink}
-            className="flex-1"
-          >
-            📋 复制分享链接
-          </Button>
-          <Button
-            onClick={handleSaveImage}
-            disabled={saving}
-            className="flex-1"
-          >
-            {saving ? '生成中...' : '🖼️ 保存图片'}
-          </Button>
-        </div>
+        <Button onClick={handleCopyLink}>
+          复制分享链接
+        </Button>
         <div className="flex gap-2">
           <Button
             variant="text"
