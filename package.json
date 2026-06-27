@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22.6.0"
+  },
   "description": "眠格自测｜解锁专属睡眠人格报告",
   "scripts": {
     "dev": "vite",
