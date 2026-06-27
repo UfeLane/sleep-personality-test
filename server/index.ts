@@ -271,7 +271,7 @@ function render(d){
     const sec=r.secondary_persona?' + '+(NAMES[r.secondary_persona]||r.secondary_persona):''
     const c=COLORS[r.primary_persona]||'#6366f1'
     return '<div class="data-item"><div class="line1"><span style="color:#aaa;font-size:11px">'+(r.date||'-')+'</span><span class="persona-tag" style="background:'+c+'22;color:'+c+'">'+(NAMES[r.primary_persona]||r.primary_persona)+'</span>'+sec+'</div><div class="line2"><span>PSQI: '+r.psqi_total+'</span><span>'+(r.level||'')+'</span>'+(tags?'<span>'+tags+'</span>':'')+'</div></div>'
-  }).join(''))
+  }).join('')
 }
 <\/script>
 </body>
