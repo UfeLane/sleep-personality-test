@@ -40,19 +40,36 @@ app.post('/api/collect', (req, res) => {
       return;
     }
 
+    const date = new Date().toISOString().split('T')[0];
     const record = {
       primary_persona,
       secondary_persona: secondary_persona || null,
       psqi_total,
       level,
       tags: tags || [],
-      date: new Date().toISOString().split('T')[0], // date only, no time/IP
+      date,
     };
 
     if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
-    writeFileSync(COLLECTION_FILE, JSON.stringify(record) + '\n', { flag: 'a' });
 
-    res.json({ success: true });
+    // Dedup: check if an identical record already exists today
+    if (existsSync(COLLECTION_FILE)) {
+      const raw = readFileSync(COLLECTION_FILE, 'utf-8').trim();
+      if (raw) {
+        const lines = raw.split('\n');
+        const fingerprint = JSON.stringify(record);
+        const isDuplicate = lines.some((line) => {
+          try { return JSON.stringify(JSON.parse(line)) === fingerprint; } catch { return false; }
+        });
+        if (isDuplicate) {
+          res.json({ success: true, deduped: true });
+          return;
+        }
+      }
+    }
+
+    writeFileSync(COLLECTION_FILE, JSON.stringify(record) + '\n', { flag: 'a' });
+    res.json({ success: true, deduped: false });
   } catch {
     res.status(500).json({ success: false, error: '保存失败' });
   }
@@ -75,7 +92,15 @@ app.get('/api/collect/data', (req, res) => {
     }
 
     const raw = readFileSync(COLLECTION_FILE, 'utf-8').trim();
-    const records = raw ? raw.split('\n').map((line) => JSON.parse(line)) : [];
+    const allRecords = raw ? raw.split('\n').map((line) => JSON.parse(line)) : [];
+
+    // Dedup: keep only unique records by JSON fingerprint
+    const seen = new Set<string>();
+    const records: typeof allRecords = [];
+    for (const r of allRecords) {
+      const fp = JSON.stringify(r);
+      if (!seen.has(fp)) { seen.add(fp); records.push(r); }
+    }
 
     // Basic stats
     const total = records.length;
