@@ -47,9 +47,12 @@ export default function SharePage() {
     if (!cardEl) return;
     setSaving(true);
     try {
+      // Small delay to ensure images have rendered
+      await new Promise((r) => setTimeout(r, 300));
       const dataUrl = await toPng(cardEl, {
         quality: 0.95,
         pixelRatio: 2,
+        useCORS: true,
       });
       const link = document.createElement('a');
       link.download = `眠格自测-${result.primary_persona_name}.png`;

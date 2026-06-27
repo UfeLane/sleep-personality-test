@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "description": "眠格自测｜解锁专属睡眠人格报告",
+  "engines": {
+    "node": ">=22.6.0"
+  },
   "scripts": {
     "dev": "vite",
     "server": "npx tsx server/index.ts",

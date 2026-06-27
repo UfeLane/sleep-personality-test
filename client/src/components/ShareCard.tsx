@@ -24,6 +24,7 @@ export default function ShareCard({ result }: ShareCardProps) {
         src="/assets/bg-stars.png"
         alt=""
         className="absolute top-4 right-4 w-16 opacity-30"
+        crossOrigin="anonymous"
       />
 
       {/* Content */}
@@ -34,6 +35,7 @@ export default function ShareCard({ result }: ShareCardProps) {
             src={`/assets/${result.image}`}
             alt={result.primary_persona_name}
             className="w-full h-full object-contain"
+            crossOrigin="anonymous"
           />
         </div>
 
