@@ -6,12 +6,12 @@
   "description": "眠格自测｜解锁专属睡眠人格报告",
   "scripts": {
     "dev": "vite",
-    "server": "node --experimental-strip-types server/index.ts",
+    "server": "npx tsx server/index.ts",
     "client": "vite",
-    "dev:all": "npx concurrently -n server,client -c blue,green \"node --experimental-strip-types server/index.ts\" \"vite\"",
+    "dev:all": "npx concurrently -n server,client -c blue,green \"npx tsx server/index.ts\" \"vite\"",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "NODE_ENV=production node --experimental-strip-types server/index.ts",
+    "start": "NODE_ENV=production npx tsx server/index.ts",
     "deploy:build": "cd client && npx vite build"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
+    "tsx": "^4.7.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -35,7 +36,6 @@
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
-    "tsx": "^4.7.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.12"
   }
